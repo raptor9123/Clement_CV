@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+     body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: #1c1717;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    
+    .bg {
+        position: absolute;
+        width: 120%;
+        height: 120%;
+       
+    }
+
+
+    nav {
+        position: absolute;
+        top: 25px;
+        right: 40px;
+        z-index: 3;
+        display: flex;
+        gap: 30px;
+    }
+
+    nav a {
+        color: #f1f1f1;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 300;
+        transition: 0.3s ease;
+    }
+
+    nav a:hover {
+        color: #ffffff;
+        text-shadow: 0 0 5px white;
+    }
+
+    .line-left {
+        position: absolute;
+        top: 23%;
+        left: 0;
+        width: 35%;
+        height: 2px;
+        background: #ffffff60;
+        z-index: 2;
+    }
+
+    .line-right {
+        position: absolute;
+        bottom: 15%;
+        right: 0;
+        width: 35%;
+        height: 2px;
+        background: #ffffff60;
+        z-index: 2;
+    }
+
+    .dots {
+        position: absolute;
+        bottom: 10%;
+        left: 5%;
+        display: flex;
+        gap: 10px;
+        z-index: 2;
+    }
+    .dots div {
+        width: 12px;
+        height: 12px;
+        background: #e5e5e5;
+        border-radius: 50%;
+    }
+
+ 
+    h1 {
+        z-index: 2;
+        font-size: 60px;
+        font-weight: 900;
+        letter-spacing: 3px;
+        text-align: center;
+        margin: 0;
+    }
+</style>
+    <h1>Bienvenue sur mon site</h1>
+    <nav>
+        <a href="clement_cv.html">CV</a>
+        <a href="localisation.html">Localisation</a>
+        <a href="site_en_construction.html">Portfolio</a>
+    </nav>
+</body>
+</html>
