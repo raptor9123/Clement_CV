@@ -1,0 +1,162 @@
+<!DOCTYPE html> 
+<html lang="fr"> 
+    <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Portfolio - Clément Cabut</title> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+        <style> :root { --bg: #0f172a; --bg-dark: #020617; --card-bg: #ffffff; --text-dark: #0f172a; --text-light: #e5e7eb; --text-muted: #94a3b8; --accent: #38bdf8; --accent-strong: #0ea5e9; } 
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; } 
+        body { font-family: 'Poppins', sans-serif; background: linear-gradient(to bottom, #0f172a, #020617); color: var(--text-light); } 
+        a { text-decoration: none; color: inherit; } 
+        a:hover, a:focus, a:active { 
+            text-decoration: none; } 
+        /* ===== NAVBAR ===== */ 
+        header { position: fixed; width: 100%; top: 0; z-index: 1000; } 
+        .navbar { margin: 20px auto; width: 90%; max-width: 1200px; background: rgba(248,250,252,0.85); backdrop-filter: blur(14px); border-radius: 18px; padding: 14px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 15px 40px rgba(56,189,248,0.25); } 
+        .logo { font-size: 1.6rem; font-weight: 700; color: var(--accent-strong); }
+         .nav-links { display: flex; gap: 35px; list-style: none; } 
+         .nav-links a { color: var(--text-dark); font-weight: 500; position: relative; } 
+         .nav-links a::after { content: ""; position: absolute; bottom: -6px; left: 50%; width: 0; height: 2px; background: var(--accent-strong); transition: 0.3s; transform: translateX(-50%); } 
+         .nav-links a:hover { color: var(--accent-strong); } 
+         .nav-links a:hover::after { width: 100%; } 
+         /* ===== HERO ===== */
+          .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 12%; }
+           .hero h1 { font-size: 4rem; }
+            .hero h2 { font-weight: 400; color: var(--accent); margin: 15px 0 25px; } 
+            .description { max-width: 700px; margin: 0 auto 40px; color: var(--text-muted); }
+             .buttons { display: flex; justify-content: center; gap: 20px; } 
+             .btn { padding: 14px 34px; border-radius: 30px; font-weight: 600; transition: 0.3s; } 
+             .btn.primary { background: var(--accent-strong); color: white; }
+              .btn.secondary { border: 2px solid var(--accent); color: var(--accent); }
+               .btn:hover { transform: translateY(-5px); }
+                /* ===== SECTIONS ===== */
+                 section { padding: 120px 10%; }
+                  .section-title { font-size: 2.6rem; text-align: center; margin-bottom: 60px; color: var(--accent); } 
+                  /* ===== PROFIL ===== */ 
+                  .profil-content { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
+                   .profil-text p { margin-bottom: 20px; color: var(--text-muted); }
+                    .stat-item { background: rgba(255,255,255,0.08); padding: 18px; border-radius: 14px; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; }
+                     /* ===== COMPÉTENCES ===== */ 
+                     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; } 
+                     .skill-card { background: var(--card-bg); color: var(--text-dark); padding: 35px; border-radius: 22px; box-shadow: 0 20px 40px rgba(15,23,42,0.15); border-top: 6px solid var(--accent); } 
+                     .skill-card h3 { margin-bottom: 15px; } 
+                     .skill-card li { font-size: 0.9rem; color: #475569; margin-bottom: 8px; }
+                      /* ===== PROJETS ===== */
+                       .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; } 
+                       .project-card { background: var(--card-bg); color: var(--text-dark); padding: 35px; border-radius: 22px; box-shadow: 0 20px 40px rgba(15,23,42,0.15); position: relative; transition: 0.4s; } 
+                       .project-card::before { content: ""; position: absolute; top: 0; left: 0; height: 6px; width: 100%; background: linear-gradient(to right, var(--accent), var(--accent-strong)); }
+                        .project-card:hover { transform: translateY(-8px); } 
+                        .tag { display: inline-block; margin-bottom: 15px; padding: 6px 14px; background: #e0f2fe; color: var(--accent-strong); border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+                         /* ===== VEILLE ===== */
+                          .veille-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; }
+                           .veille-card { background: rgba(255,255,255,0.08); padding: 25px; border-radius: 18px; } 
+                           .veille-card:nth-child(even) { transform: translateY(40px);}
+                           /* ===== FOOTER ===== */ 
+                           footer { background: var(--bg-dark); text-align: center; padding: 60px 10%; color: var(--text-muted); } 
+                           /* ===== RESPONSIVE ===== */ @media (max-width: 900px) { .profil-content { grid-template-columns: 1fr; } .nav-links { display: none; } .hero h1 { font-size: 2.8rem; } }
+                            </style> 
+                            </head> 
+                            <body>
+                             <header>
+                                 <nav class="navbar"> 
+                                    <div class="logo">Portfolio</div>
+                                     <ul class="nav-links">
+                                         <li><a href="#accueil">Accueil</a></li> 
+                                         <li><a href="#profil">Profil</a></li>
+                                          <li><a href="#competences">Compétences</a></li> 
+                                          <li><a href="#projets">Projets</a></li>
+                                           <li><a href="#veille">Veille</a></li> 
+                                           <li><a href="clement_cv.html" class="btn primary">Mon CV</a>  </li>
+                                        </ul>
+                                     </nav>
+                                     </header>
+                                      <section id="accueil" class="hero"> 
+                                        <div> <h1>Clément Cabut</h1> 
+                                            <h2>BTS SIO – Option SISR</h2> 
+                                            <p class="description"> Étudiant passionné par les réseaux, les systèmes et la cybersécurité. </p> 
+                                            <div class="buttons">
+                                                 <a href="#projets" class="btn primary">Mes projets</a> 
+                                                 <a href="#profil" class="btn secondary">Mon profil</a>
+                                                  
+                                                </div>
+                                                 </div> </section> 
+                                                 <section id="profil">
+                                                     <h2 class="section-title">Profil</h2> 
+                                                     <div class="profil-content">
+                                                         <div class="profil-text">
+                                                             <p> Étudiant en BTS SIO option SISR, je me spécialise dans l’administration des systèmes, les réseaux et la sécurité informatique. </p> 
+                                                             <p> Mon objectif est de devenir administrateur systèmes et réseaux ou évoluer dans le domaine de la cybersécurité. </p> </div> 
+                                                             <div> <div class="stat-item">
+                                                                <i class="fas fa-graduation-cap"></i> BTS SIO</div>
+                                                                 <div class="stat-item"><i class="fas fa-network-wired"></i> SISR</div> 
+                                                                 <div class="stat-item"><i class="fas fa-shield-alt"></i> Cybersécurité</div> 
+                                                                </div> 
+                                                            </div> 
+                                                        </section> 
+                                                        <section id="competences"> 
+                                                            <h2 class="section-title">Compétences</h2> 
+                                                            <div class="skills-grid"> <div class="skill-card"> 
+                                                                <h3>Systèmes</h3>
+                                                                 <ul> 
+                                                                    <li>Windows Server (AD, DNS, DHCP)</li> 
+                                                                    <li>Linux (bases)</li>
+                                                                     <li>Virtualisation</li>
+                                                                     </ul> 
+                                                                    </div>
+                                                                     <div class="skill-card"> 
+                                                                        <h3>Réseaux</h3>
+                                                                         <ul> 
+                                                                            <li>Adressage IP & VLAN</li>
+                                                                             <li>Switch / Routeur Cisco</li>
+                                                                              <li>Packet Tracer</li>
+                                                                             </ul> 
+                                                                            </div> 
+                                                                            <div class="skill-card">
+                                                                                 <h3>Outils</h3>
+                                                                                  <ul> 
+                                                                                    <li>GLPI</li>
+                                                                                     <li>Support utilisateur</li> 
+                                                                                     <li>Documentation</li> 
+                                                                                    </ul>
+                                                                                 </div>
+                                                                                 </div>
+                                                                                 </section> <section id="projets">
+                                                                                     <h2 class="section-title">Projets</h2>
+                                                                                      <div class="projects-grid"> 
+                                                                                        <div class="project-card"> 
+                                                                                            <span class="tag">Réseau</span>
+                                                                                             <h3>Réseau d’entreprise</h3>
+                                                                                              <p>Infrastructure réseau avec VLANs et routage.</p>
+                                                                                             </div> 
+                                                                                             <div class="project-card">
+                                                                                                 <span class="tag">Système</span> 
+                                                                                                 <h3>Active Directory</h3>
+                                                                                                  <p>Déploiement Windows Server, GPO et utilisateurs.</p>
+                                                                                                 </div> 
+                                                                                                 <div class="project-card">
+                                                                                                     <span class="tag">Gestion</span>
+                                                                                                      <h3>GLPI</h3> 
+                                                                                                      <p>Gestion de parc et support informatique.</p>
+                                                                                                     </div>
+                                                                                                     </div> 
+                                                                                                    </section> 
+                                                                                                    <section id="veille">
+                                                                                                         <h2 class="section-title">Veille Technologique</h2> 
+                                                                                                         <div class="veille-grid"> 
+                                                                                                            
+                                                                                                            <div class="veille-card">
+                                                                                                                 <h3>Cybersécurité</h3> 
+                                                                                                                 <p>Menaces, failles, bonnes pratiques.</p>
+                                                                                                                 </div> <div class="veille-card">
+                                                                                                                     <h3>Réseaux</h3>
+                                                                                                                      <p>Évolutions des infrastructures et protocoles.</p>
+                                                                                                                     </div> <div class="veille-card"> 
+                                                                                                                        <h3>Cloud</h3> 
+                                                                                                                        <p>Virtualisation et services cloud modernes.</p>
+                                                                                                                     </div>
+                                                                                                                     </div> 
+                                                                                                                    </section> 
+                                                                                                                    <footer> 
+                                                                                                                        <p>© 2026 — Clément Cabut | Portfolio BTS SIO</p>
+                                                                                                                     </footer> 
+                                                                                                                    </body> 
+                                                                                                                    </html>
