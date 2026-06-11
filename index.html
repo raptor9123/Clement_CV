@@ -1,162 +1,490 @@
-<!DOCTYPE html> 
-<html lang="fr"> 
-    <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>Portfolio - Clément Cabut</title> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
-        <style> :root { --bg: #0f172a; --bg-dark: #020617; --card-bg: #ffffff; --text-dark: #0f172a; --text-light: #e5e7eb; --text-muted: #94a3b8; --accent: #38bdf8; --accent-strong: #0ea5e9; } 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; } 
-        body { font-family: 'Poppins', sans-serif; background: linear-gradient(to bottom, #0f172a, #020617); color: var(--text-light); } 
-        a { text-decoration: none; color: inherit; } 
-        a:hover, a:focus, a:active { 
-            text-decoration: none; } 
-        /* ===== NAVBAR ===== */ 
-        header { position: fixed; width: 100%; top: 0; z-index: 1000; } 
-        .navbar { margin: 20px auto; width: 90%; max-width: 1200px; background: rgba(248,250,252,0.85); backdrop-filter: blur(14px); border-radius: 18px; padding: 14px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 15px 40px rgba(56,189,248,0.25); } 
-        .logo { font-size: 1.6rem; font-weight: 700; color: var(--accent-strong); }
-         .nav-links { display: flex; gap: 35px; list-style: none; } 
-         .nav-links a { color: var(--text-dark); font-weight: 500; position: relative; } 
-         .nav-links a::after { content: ""; position: absolute; bottom: -6px; left: 50%; width: 0; height: 2px; background: var(--accent-strong); transition: 0.3s; transform: translateX(-50%); } 
-         .nav-links a:hover { color: var(--accent-strong); } 
-         .nav-links a:hover::after { width: 100%; } 
-         /* ===== HERO ===== */
-          .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 12%; }
-           .hero h1 { font-size: 4rem; }
-            .hero h2 { font-weight: 400; color: var(--accent); margin: 15px 0 25px; } 
-            .description { max-width: 700px; margin: 0 auto 40px; color: var(--text-muted); }
-             .buttons { display: flex; justify-content: center; gap: 20px; } 
-             .btn { padding: 14px 34px; border-radius: 30px; font-weight: 600; transition: 0.3s; } 
-             .btn.primary { background: var(--accent-strong); color: white; }
-              .btn.secondary { border: 2px solid var(--accent); color: var(--accent); }
-               .btn:hover { transform: translateY(-5px); }
-                /* ===== SECTIONS ===== */
-                 section { padding: 120px 10%; }
-                  .section-title { font-size: 2.6rem; text-align: center; margin-bottom: 60px; color: var(--accent); } 
-                  /* ===== PROFIL ===== */ 
-                  .profil-content { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
-                   .profil-text p { margin-bottom: 20px; color: var(--text-muted); }
-                    .stat-item { background: rgba(255,255,255,0.08); padding: 18px; border-radius: 14px; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; }
-                     /* ===== COMPÉTENCES ===== */ 
-                     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; } 
-                     .skill-card { background: var(--card-bg); color: var(--text-dark); padding: 35px; border-radius: 22px; box-shadow: 0 20px 40px rgba(15,23,42,0.15); border-top: 6px solid var(--accent); } 
-                     .skill-card h3 { margin-bottom: 15px; } 
-                     .skill-card li { font-size: 0.9rem; color: #475569; margin-bottom: 8px; }
-                      /* ===== PROJETS ===== */
-                       .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; } 
-                       .project-card { background: var(--card-bg); color: var(--text-dark); padding: 35px; border-radius: 22px; box-shadow: 0 20px 40px rgba(15,23,42,0.15); position: relative; transition: 0.4s; } 
-                       .project-card::before { content: ""; position: absolute; top: 0; left: 0; height: 6px; width: 100%; background: linear-gradient(to right, var(--accent), var(--accent-strong)); }
-                        .project-card:hover { transform: translateY(-8px); } 
-                        .tag { display: inline-block; margin-bottom: 15px; padding: 6px 14px; background: #e0f2fe; color: var(--accent-strong); border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
-                         /* ===== VEILLE ===== */
-                          .veille-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; }
-                           .veille-card { background: rgba(255,255,255,0.08); padding: 25px; border-radius: 18px; } 
-                           .veille-card:nth-child(even) { transform: translateY(40px);}
-                           /* ===== FOOTER ===== */ 
-                           footer { background: var(--bg-dark); text-align: center; padding: 60px 10%; color: var(--text-muted); } 
-                           /* ===== RESPONSIVE ===== */ @media (max-width: 900px) { .profil-content { grid-template-columns: 1fr; } .nav-links { display: none; } .hero h1 { font-size: 2.8rem; } }
-                            </style> 
-                            </head> 
-                            <body>
-                             <header>
-                                 <nav class="navbar"> 
-                                    <div class="logo">Portfolio</div>
-                                     <ul class="nav-links">
-                                         <li><a href="#accueil">Accueil</a></li> 
-                                         <li><a href="#profil">Profil</a></li>
-                                          <li><a href="#competences">Compétences</a></li> 
-                                          <li><a href="#projets">Projets</a></li>
-                                           <li><a href="#veille">Veille</a></li> 
-                                           <li><a href="clement_cv.html" class="btn primary">Mon CV</a>  </li>
-                                        </ul>
-                                     </nav>
-                                     </header>
-                                      <section id="accueil" class="hero"> 
-                                        <div> <h1>Clément Cabut</h1> 
-                                            <h2>BTS SIO – Option SISR</h2> 
-                                            <p class="description"> Étudiant passionné par les réseaux, les systèmes et la cybersécurité. </p> 
-                                            <div class="buttons">
-                                                 <a href="#projets" class="btn primary">Mes projets</a> 
-                                                 <a href="#profil" class="btn secondary">Mon profil</a>
-                                                  
-                                                </div>
-                                                 </div> </section> 
-                                                 <section id="profil">
-                                                     <h2 class="section-title">Profil</h2> 
-                                                     <div class="profil-content">
-                                                         <div class="profil-text">
-                                                             <p> Étudiant en BTS SIO option SISR, je me spécialise dans l’administration des systèmes, les réseaux et la sécurité informatique. </p> 
-                                                             <p> Mon objectif est de devenir administrateur systèmes et réseaux ou évoluer dans le domaine de la cybersécurité. </p> </div> 
-                                                             <div> <div class="stat-item">
-                                                                <i class="fas fa-graduation-cap"></i> BTS SIO</div>
-                                                                 <div class="stat-item"><i class="fas fa-network-wired"></i> SISR</div> 
-                                                                 <div class="stat-item"><i class="fas fa-shield-alt"></i> Cybersécurité</div> 
-                                                                </div> 
-                                                            </div> 
-                                                        </section> 
-                                                        <section id="competences"> 
-                                                            <h2 class="section-title">Compétences</h2> 
-                                                            <div class="skills-grid"> <div class="skill-card"> 
-                                                                <h3>Systèmes</h3>
-                                                                 <ul> 
-                                                                    <li>Windows Server (AD, DNS, DHCP)</li> 
-                                                                    <li>Linux (bases)</li>
-                                                                     <li>Virtualisation</li>
-                                                                     </ul> 
-                                                                    </div>
-                                                                     <div class="skill-card"> 
-                                                                        <h3>Réseaux</h3>
-                                                                         <ul> 
-                                                                            <li>Adressage IP & VLAN</li>
-                                                                             <li>Switch / Routeur Cisco</li>
-                                                                              <li>Packet Tracer</li>
-                                                                             </ul> 
-                                                                            </div> 
-                                                                            <div class="skill-card">
-                                                                                 <h3>Outils</h3>
-                                                                                  <ul> 
-                                                                                    <li>cisco packet tracer </li>
-                                                                                     <li>virtual box</li> 
-                                                                                    
-                                                                                    </ul>
-                                                                                 </div>
-                                                                                 </div>
-                                                                                 </section> <section id="projets">
-                                                                                     <h2 class="section-title">Projets</h2>
-                                                                                      <div class="projects-grid"> 
-                                                                                        <div class="project-card"> 
-                                                                                            <span class="tag">projet rectiligne</span>
-                                                                                             <h3>Réseau d’entreprise</h3>
-                                                                                              <p>Infrastructure réseau avec VLANs et routage.</p>
-                                                                                             </div> 
-                                                                                             <div class="project-card">
-                                                                                                 <span class="tag">cisco packet tracer</span> 
-                                                                                                 <h3>reseau</h3>
-                                                                                                  <p>initiation aux infrastructure reseaux </p>
-                                                                                                 </div> 
-                                                                                                 <div class="project-card">
-                                                                                                     <span class="tag">Gestion</span>
-                                                                                                      <h3>GLPI</h3> 
-                                                                                                      <p>Gestion de parc et support informatique.</p>
-                                                                                                     </div>
-                                                                                                     </div> 
-                                                                                                    </section> 
-                                                                                                    <section id="veille">
-                                                                                                         <h2 class="section-title">Veille Technologique</h2> 
-                                                                                                         <div class="veille-grid"> 
-                                                                                                            
-                                                                                                            <div class="veille-card">
-                                                                                                                 <h3>Cybersécurité</h3> 
-                                                                                                                 <p>Menaces, failles, bonnes pratiques.</p>
-                                                                                                                 </div> <div class="veille-card">
-                                                                                                                     <h3>Réseaux</h3>
-                                                                                                                      <p>Évolutions des infrastructures et protocoles.</p>
-                                                                                                                     </div> <div class="veille-card"> 
-                                                                                                                        <h3>Cloud</h3> 
-                                                                                                                        <p>Virtualisation et services cloud modernes.</p>
-                                                                                                                     </div>
-                                                                                                                     </div> 
-                                                                                                                    </section> 
-                                                                                                                    <footer> 
-                                                                                                                        <p>© 2026 — Clément Cabut | Portfolio BTS SIO</p>
-                                                                                                                     </footer> 
-                                                                                                                    </body> 
-                                                                                                                    </html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Clément Cabut</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-dark: #020617;
+      --card-bg: #ffffff;
+      --text-dark: #0f172a;
+      --text-light: #e5e7eb;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-strong: #0ea5e9;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: linear-gradient(to bottom, #0f172a, #020617); color: var(--text-light); }
+    a { text-decoration: none; color: inherit; }
+    a:hover, a:focus, a:active { text-decoration: none; }
+
+    /* ===== NAVBAR ===== */
+    header { position: fixed; width: 100%; top: 0; z-index: 1000; }
+    .navbar { margin: 20px auto; width: 90%; max-width: 1300px; background: rgba(248,250,252,0.92); backdrop-filter: blur(14px); border-radius: 18px; padding: 14px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 15px 40px rgba(56,189,248,0.25); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--accent-strong); flex-shrink: 0; }
+    .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; flex-wrap: wrap; }
+    .nav-links a { color: var(--text-dark); font-weight: 500; position: relative; font-size: 0.88rem; }
+    .nav-links a::after { content: ""; position: absolute; bottom: -5px; left: 50%; width: 0; height: 2px; background: var(--accent-strong); transition: 0.3s; transform: translateX(-50%); }
+    .nav-links a:hover { color: var(--accent-strong); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cv { padding: 9px 22px; border-radius: 30px; background: var(--accent-strong); color: white !important; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+    .nav-cv:hover { transform: translateY(-3px); background: #0284c7; }
+    .nav-cv::after { display: none !important; }
+
+    /* ===== HERO ===== */
+    .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 12%; }
+    .hero h1 { font-size: 4rem; }
+    .hero h2 { font-weight: 400; color: var(--accent); margin: 15px 0 25px; }
+    .description { max-width: 700px; margin: 0 auto 40px; color: var(--text-muted); }
+    .buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .btn { padding: 14px 34px; border-radius: 30px; font-weight: 600; transition: 0.3s; display: inline-block; }
+    .btn.primary { background: var(--accent-strong); color: white; }
+    .btn.secondary { border: 2px solid var(--accent); color: var(--accent); }
+    .btn:hover { transform: translateY(-5px); }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 120px 10%; }
+    .section-title { font-size: 2.6rem; text-align: center; margin-bottom: 60px; color: var(--accent); }
+
+    /* ===== PROFIL ===== */
+    .profil-content { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
+    .profil-text p { margin-bottom: 20px; color: var(--text-muted); }
+    .stat-item { background: rgba(255,255,255,0.08); padding: 18px; border-radius: 14px; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; }
+
+    /* ===== PARCOURS ===== */
+    .parcours-timeline { position: relative; max-width: 800px; margin: 0 auto; padding-left: 40px; }
+    .parcours-timeline::before { content: ""; position: absolute; left: 14px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--accent-strong)); border-radius: 2px; }
+    .parcours-item { position: relative; margin-bottom: 45px; }
+    .parcours-item::before { content: ""; position: absolute; left: -33px; top: 6px; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; border: 3px solid var(--bg); box-shadow: 0 0 0 3px var(--accent); }
+    .parcours-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(56,189,248,0.15); padding: 25px 30px; border-radius: 16px; transition: 0.3s; }
+    .parcours-card:hover { background: rgba(255,255,255,0.10); border-color: rgba(56,189,248,0.35); }
+    .parcours-year { font-size: 0.8rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .parcours-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+    .parcours-card p { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* ===== COMPÉTENCES ===== */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; }
+    .skill-card { background: var(--card-bg); color: var(--text-dark); padding: 35px; border-radius: 22px; box-shadow: 0 20px 40px rgba(15,23,42,0.15); border-top: 6px solid var(--accent); }
+    .skill-card h3 { margin-bottom: 20px; }
+    .skill-item { margin-bottom: 14px; }
+    .skill-label { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem; color: #475569; font-weight: 500; }
+    .skill-bar { background: #e2e8f0; border-radius: 30px; height: 8px; overflow: hidden; }
+    .skill-fill { height: 100%; border-radius: 30px; background: linear-gradient(to right, var(--accent), var(--accent-strong)); }
+
+    /* ===== NDS ===== */
+    .nds-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; max-width: 800px; margin: 0 auto; }
+    .nds-card { background: var(--card-bg); color: var(--text-dark); padding: 40px 35px; border-radius: 22px; box-shadow: 0 20px 40px rgba(15,23,42,0.15); border-top: 6px solid var(--accent); text-align: center; transition: 0.35s; }
+    .nds-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(14,165,233,0.2); }
+    .nds-icon { font-size: 2.8rem; margin-bottom: 18px; color: var(--accent-strong); }
+    .nds-card h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--text-dark); }
+    .nds-card p { font-size: 0.88rem; color: #64748b; margin-bottom: 22px; }
+    .nds-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 26px; border-radius: 30px; background: var(--accent-strong); color: white; font-weight: 600; font-size: 0.88rem; transition: 0.3s; }
+    .nds-btn:hover { transform: translateY(-3px); background: #0284c7; }
+
+    /* ===== PROJETS ===== */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
+    .project-card { background: var(--card-bg); color: var(--text-dark); padding: 35px; border-radius: 22px; box-shadow: 0 20px 40px rgba(15,23,42,0.15); position: relative; transition: 0.4s; display: flex; flex-direction: column; }
+    .project-card::before { content: ""; position: absolute; top: 0; left: 0; height: 6px; width: 100%; background: linear-gradient(to right, var(--accent), var(--accent-strong)); border-radius: 22px 22px 0 0; }
+    .project-card:hover { transform: translateY(-8px); }
+    .project-card h3 { margin-bottom: 10px; }
+    .project-card p { color: #475569; font-size: 0.9rem; flex-grow: 1; margin-bottom: 20px; }
+    .tag { display: inline-block; margin-bottom: 15px; padding: 6px 14px; background: #e0f2fe; color: var(--accent-strong); border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+    .project-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; border-radius: 30px; background: var(--accent-strong); color: white; font-weight: 600; font-size: 0.83rem; transition: 0.3s; align-self: flex-start; }
+    .project-link:hover { transform: translateY(-3px); background: #0284c7; }
+
+    /* ===== VEILLE ===== */
+    .veille-intro { background: rgba(56,189,248,0.07); border: 1px solid rgba(56,189,248,0.2); border-radius: 20px; padding: 40px 45px; margin-bottom: 60px; }
+    .veille-intro h3 { font-size: 1.4rem; color: var(--accent); margin-bottom: 15px; display: flex; align-items: center; gap: 12px; }
+    .veille-intro p { color: var(--text-muted); line-height: 1.8; margin-bottom: 14px; }
+    .veille-intro p:last-child { margin-bottom: 0; }
+
+    .veille-topics { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-bottom: 70px; }
+    .veille-topic { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; display: flex; gap: 18px; align-items: flex-start; transition: 0.3s; }
+    .veille-topic:hover { background: rgba(56,189,248,0.07); border-color: rgba(56,189,248,0.25); }
+    .veille-topic-icon { font-size: 1.8rem; color: var(--accent); flex-shrink: 0; margin-top: 3px; }
+    .veille-topic h4 { font-size: 1rem; margin-bottom: 6px; }
+    .veille-topic p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    .veille-articles-title { font-size: 1.6rem; color: var(--text-light); text-align: center; margin-bottom: 35px; font-weight: 600; }
+    .veille-articles-title span { color: var(--accent); }
+
+    /* Article cards avec synthèse intégrée */
+    .veille-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-bottom: 60px; }
+    .veille-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; overflow: hidden; transition: 0.3s; display: flex; flex-direction: column; }
+    .veille-card:hover { background: rgba(255,255,255,0.09); border-color: rgba(56,189,248,0.3); transform: translateY(-4px); }
+    .veille-card-header { padding: 28px 28px 20px; }
+    .veille-card-num { font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+    .veille-card h3 { font-size: 1rem; margin-bottom: 10px; }
+    .veille-card-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; }
+    .veille-placeholder { display: flex; align-items: center; gap: 8px; margin-top: 16px; padding: 10px 16px; background: rgba(56,189,248,0.08); border-radius: 10px; font-size: 0.8rem; color: var(--accent); border: 1px dashed rgba(56,189,248,0.3); }
+    .veille-synthese-inline { background: rgba(14,165,233,0.08); border-top: 1px solid rgba(56,189,248,0.15); padding: 20px 28px; margin-top: auto; }
+    .veille-synthese-inline-label { font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 8px; display: flex; align-items: center; gap: 7px; }
+    .veille-synthese-inline p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; font-style: italic; }
+
+    /* Synthèse globale */
+    .veille-synthese-globale { background: linear-gradient(135deg, rgba(14,165,233,0.1), rgba(56,189,248,0.05)); border: 1px solid rgba(56,189,248,0.25); border-radius: 20px; padding: 40px 45px; }
+    .veille-synthese-globale h3 { font-size: 1.3rem; color: var(--accent); margin-bottom: 15px; display: flex; align-items: center; gap: 12px; }
+    .veille-synthese-globale p { color: var(--text-muted); line-height: 1.8; }
+
+    /* ===== FOOTER ===== */
+    footer { background: var(--bg-dark); text-align: center; padding: 60px 10%; color: var(--text-muted); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .profil-content { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero h1 { font-size: 2.8rem; }
+      .veille-intro { padding: 28px 24px; }
+      .veille-synthese-globale { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="logo">Portfolio</div>
+    <ul class="nav-links">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#profil">Profil</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#nds">NDS</a></li>
+      <li><a href="#veille">Veille</a></li>
+      <li><a href="clement_cv.html" class="nav-cv"><i class="fas fa-file-pdf" style="margin-right:6px"></i>Mon CV</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="accueil" class="hero">
+  <div>
+    <h1>Clément Cabut</h1>
+    <h2>BTS SIO – Option SISR</h2>
+    <p class="description">Étudiant passionné par les réseaux, les systèmes et la cybersécurité.</p>
+    <div class="buttons">
+      <a href="#projets" class="btn primary">Mes projets</a>
+      <a href="#profil" class="btn secondary">Mon profil</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROFIL -->
+<section id="profil">
+  <h2 class="section-title">Profil</h2>
+  <div class="profil-content">
+    <div class="profil-text">
+      <p>Étudiant en BTS SIO option SISR, je me spécialise dans l'administration des systèmes, les réseaux et la sécurité informatique.</p>
+      <p>Mon objectif est de devenir administrateur systèmes et réseaux ou évoluer dans le domaine de la cybersécurité.</p>
+    </div>
+    <div>
+      <div class="stat-item"><i class="fas fa-graduation-cap"></i> BTS SIO</div>
+      <div class="stat-item"><i class="fas fa-network-wired"></i> SISR</div>
+      <div class="stat-item"><i class="fas fa-shield-alt"></i> Cybersécurité</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCOURS -->
+<section id="parcours">
+  <h2 class="section-title">Parcours</h2>
+  <div class="parcours-timeline">
+
+    <div class="parcours-item">
+      <div class="parcours-card">
+        <div class="parcours-year">À compléter</div>
+        <h3>Votre établissement — Votre diplôme</h3>
+        <p>Décrivez ici votre formation actuelle ou passée.</p>
+      </div>
+    </div>
+
+    <div class="parcours-item">
+      <div class="parcours-card">
+        <div class="parcours-year">À compléter</div>
+        <h3>Votre établissement — Votre diplôme</h3>
+        <p>Décrivez ici une autre étape de votre parcours.</p>
+      </div>
+    </div>
+
+    <div class="parcours-item">
+      <div class="parcours-card">
+        <div class="parcours-year">À compléter</div>
+        <h3>Votre établissement — Votre diplôme</h3>
+        <p>Décrivez ici une autre étape de votre parcours.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="competences">
+  <h2 class="section-title">Compétences</h2>
+  <div class="skills-grid">
+
+    <div class="skill-card">
+      <h3>Systèmes</h3>
+      <div class="skill-item">
+        <div class="skill-label"><span>Windows Server (AD, DNS, DHCP)</span><span>75%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-label"><span>Linux (bases)</span><span>50%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:50%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-label"><span>Virtualisation (VirtualBox)</span><span>65%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3>Réseaux</h3>
+      <div class="skill-item">
+        <div class="skill-label"><span>Adressage IP & VLAN</span><span>70%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-label"><span>Switch / Routeur Cisco</span><span>60%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-label"><span>Packet Tracer</span><span>65%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3>Sécurité & Outils</h3>
+      <div class="skill-item">
+        <div class="skill-label"><span>Gestion de parc (GLPI)</span><span>60%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-label"><span>Bonnes pratiques cybersécurité</span><span>55%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:55%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-label"><span>Support & assistance utilisateur</span><span>70%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets">
+  <h2 class="section-title">Projets</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <span class="tag">Projet rectiligne</span>
+      <h3>Réseau d'entreprise</h3>
+      <p>Infrastructure réseau avec VLANs et routage inter-VLAN.</p>
+      <a href="LIEN_COMPTE_RENDU_1" target="_blank" class="project-link">
+        <i class="fab fa-google-drive"></i> Voir le compte rendu
+      </a>
+    </div>
+
+    <div class="project-card">
+      <span class="tag">Cisco Packet Tracer</span>
+      <h3>Réseau</h3>
+      <p>Initiation aux infrastructures réseaux.</p>
+      <a href="LIEN_COMPTE_RENDU_2" target="_blank" class="project-link">
+        <i class="fab fa-google-drive"></i> Voir le compte rendu
+      </a>
+    </div>
+
+    <div class="project-card">
+      <span class="tag">Gestion</span>
+      <h3>GLPI</h3>
+      <p>Gestion de parc et support informatique.</p>
+      <a href="LIEN_COMPTE_RENDU_3" target="_blank" class="project-link">
+        <i class="fab fa-google-drive"></i> Voir le compte rendu
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- NDS -->
+<section id="nds">
+  <h2 class="section-title">Notes de Synthèse</h2>
+  <div class="nds-grid">
+
+    <div class="nds-card">
+      <div class="nds-icon"><i class="fas fa-file-alt"></i></div>
+      <h3>Note de Synthèse 1</h3>
+      <p>Cliquez ci-dessous pour consulter ma première note de synthèse hébergée sur Google Drive.</p>
+      <a href="LIEN_GOOGLE_DRIVE_NDS1" target="_blank" class="nds-btn">
+        <i class="fab fa-google-drive"></i> Consulter la NDS 1
+      </a>
+    </div>
+
+    <div class="nds-card">
+      <div class="nds-icon"><i class="fas fa-file-alt"></i></div>
+      <h3>Note de Synthèse 2</h3>
+      <p>Cliquez ci-dessous pour consulter ma deuxième note de synthèse hébergée sur Google Drive.</p>
+      <a href="LIEN_GOOGLE_DRIVE_NDS2" target="_blank" class="nds-btn">
+        <i class="fab fa-google-drive"></i> Consulter la NDS 2
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- VEILLE TECHNOLOGIQUE -->
+<section id="veille">
+  <h2 class="section-title">Veille Technologique</h2>
+
+  <!-- Principe de la veille -->
+  <div class="veille-intro">
+    <h3><i class="fas fa-satellite-dish"></i> Qu'est-ce que la veille technologique ?</h3>
+    <p>La veille technologique est un processus continu de surveillance et d'analyse des évolutions techniques et scientifiques dans un domaine donné. Elle permet d'anticiper les tendances, d'identifier les innovations émergentes et de rester à jour face aux mutations rapides du secteur.</p>
+    <p>Dans le cadre du BTS SIO, cette démarche est essentielle : elle développe l'esprit critique, la capacité à traiter l'information et à en tirer des conclusions pertinentes pour sa pratique professionnelle.</p>
+  </div>
+
+  <!-- Présentation des exosquelettes -->
+  <div class="veille-topics">
+
+    <div class="veille-topic">
+      <div class="veille-topic-icon"><i class="fas fa-robot"></i></div>
+      <div>
+        <h4>Qu'est-ce qu'un exosquelette ?</h4>
+        <p>Un exosquelette est une structure mécanique portée par un être humain, conçue pour amplifier, assister ou restaurer les capacités physiques de son utilisateur. Il s'agit d'une combinaison de mécanique, d'électronique et d'informatique embarquée.</p>
+      </div>
+    </div>
+
+    <div class="veille-topic">
+      <div class="veille-topic-icon"><i class="fas fa-history"></i></div>
+      <div>
+        <h4>Origines & histoire</h4>
+        <p>Les premiers concepts remontent aux années 1960 avec les recherches militaires américaines. Le projet "Hardiman" de General Electric (1965) est l'un des premiers prototypes. Les avancées décisives arrivent dans les années 2000 grâce à la miniaturisation électronique et aux progrès en robotique.</p>
+      </div>
+    </div>
+
+    <div class="veille-topic">
+      <div class="veille-topic-icon"><i class="fas fa-hospital"></i></div>
+      <div>
+        <h4>Médical & rééducation</h4>
+        <p>Utilisés en kinésithérapie et neurologie pour aider les patients paraplégiques ou victimes d'AVC à retrouver la marche. Des modèles comme le ReWalk ou l'Ekso Bionics sont déjà utilisés en milieu hospitalier.</p>
+      </div>
+    </div>
+
+    <div class="veille-topic">
+      <div class="veille-topic-icon"><i class="fas fa-hard-hat"></i></div>
+      <div>
+        <h4>Industrie & BTP</h4>
+        <p>Dans les usines et sur les chantiers, les exosquelettes réduisent les troubles musculo-squelettiques (TMS) des travailleurs en soutenant le dos, les épaules et les bras lors de tâches répétitives ou de port de charges lourdes.</p>
+      </div>
+    </div>
+
+    <div class="veille-topic">
+      <div class="veille-topic-icon"><i class="fas fa-fighter-jet"></i></div>
+      <div>
+        <h4>Défense & applications futures</h4>
+        <p>Les armées investissent dans des exosquelettes pour augmenter l'endurance des soldats et faciliter le port d'équipements lourds. À terme, des usages dans l'exploration spatiale ou l'assistance aux personnes âgées sont envisagés.</p>
+      </div>
+    </div>
+
+    <div class="veille-topic">
+      <div class="veille-topic-icon"><i class="fas fa-microchip"></i></div>
+      <div>
+        <h4>Technologies embarquées</h4>
+        <p>Les exosquelettes modernes intègrent des capteurs, de l'intelligence artificielle, des actionneurs électriques ou hydrauliques, et des interfaces cerveau-machine. Le traitement des données en temps réel est au cœur de leur fonctionnement.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Articles avec synthèse par article -->
+  <p class="veille-articles-title">Mes articles & ressources de <span>veille</span></p>
+  <div class="veille-grid">
+
+    <div class="veille-card">
+      <div class="veille-card-header">
+        <div class="veille-card-num">Article 01</div>
+        <h3>Titre de l'article à renseigner</h3>
+        <p class="veille-card-desc">Résumé de l'article à compléter : source, date, points clés abordés.</p>
+        <div class="veille-placeholder"><i class="fas fa-link"></i> Lien à ajouter</div>
+      </div>
+      <div class="veille-synthese-inline">
+        <div class="veille-synthese-inline-label"><i class="fas fa-pen-nib"></i> Ma synthèse</div>
+        <p>Ce que cet article m'a appris, en quoi il est pertinent pour ma veille sur les exosquelettes…</p>
+      </div>
+    </div>
+
+    <div class="veille-card">
+      <div class="veille-card-header">
+        <div class="veille-card-num">Article 02</div>
+        <h3>Titre de l'article à renseigner</h3>
+        <p class="veille-card-desc">Résumé de l'article à compléter : source, date, points clés abordés.</p>
+        <div class="veille-placeholder"><i class="fas fa-link"></i> Lien à ajouter</div>
+      </div>
+      <div class="veille-synthese-inline">
+        <div class="veille-synthese-inline-label"><i class="fas fa-pen-nib"></i> Ma synthèse</div>
+        <p>Ce que cet article m'a appris, en quoi il est pertinent pour ma veille sur les exosquelettes…</p>
+      </div>
+    </div>
+
+    <div class="veille-card">
+      <div class="veille-card-header">
+        <div class="veille-card-num">Article 03</div>
+        <h3>Titre de l'article à renseigner</h3>
+        <p class="veille-card-desc">Résumé de l'article à compléter : source, date, points clés abordés.</p>
+        <div class="veille-placeholder"><i class="fas fa-link"></i> Lien à ajouter</div>
+      </div>
+      <div class="veille-synthese-inline">
+        <div class="veille-synthese-inline-label"><i class="fas fa-pen-nib"></i> Ma synthèse</div>
+        <p>Ce que cet article m'a appris, en quoi il est pertinent pour ma veille sur les exosquelettes…</p>
+      </div>
+    </div>
+
+    <div class="veille-card">
+      <div class="veille-card-header">
+        <div class="veille-card-num">Article 04</div>
+        <h3>Titre de l'article à renseigner</h3>
+        <p class="veille-card-desc">Résumé de l'article à compléter : source, date, points clés abordés.</p>
+        <div class="veille-placeholder"><i class="fas fa-link"></i> Lien à ajouter</div>
+      </div>
+      <div class="veille-synthese-inline">
+        <div class="veille-synthese-inline-label"><i class="fas fa-pen-nib"></i> Ma synthèse</div>
+        <p>Ce que cet article m'a appris, en quoi il est pertinent pour ma veille sur les exosquelettes…</p>
+      </div>
+    </div>
+
+    <div class="veille-card">
+      <div class="veille-card-header">
+        <div class="veille-card-num">Article 05</div>
+        <h3>Titre de l'article à renseigner</h3>
+        <p class="veille-card-desc">Résumé de l'article à compléter : source, date, points clés abordés.</p>
+        <div class="veille-placeholder"><i class="fas fa-link"></i> Lien à ajouter</div>
+      </div>
+      <div class="veille-synthese-inline">
+        <div class="veille-synthese-inline-label"><i class="fas fa-pen-nib"></i> Ma synthèse</div>
+        <p>Ce que cet article m'a appris, en quoi il est pertinent pour ma veille sur les exosquelettes…</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Synthèse globale -->
+  <div class="veille-synthese-globale">
+    <h3><i class="fas fa-layer-group"></i> Synthèse globale</h3>
+    <p>À compléter : résumez ici les grandes tendances observées à travers l'ensemble de vos articles. Quels sont les enjeux majeurs des exosquelettes aujourd'hui ? Quelles évolutions prévisibles à court et moyen terme ? Faites le lien avec votre formation SIO/SISR si possible (sécurité des données médicales, IoT, systèmes embarqués…).</p>
+  </div>
+
+</section>
+
+<footer>
+  <p>© 2026 — Clément Cabut | Portfolio BTS SIO</p>
+</footer>
+
+</body>
+</html>
