@@ -97,38 +97,55 @@
     .project-link:hover { transform: translateY(-3px); background: #0284c7; }
 
     /* ===== VEILLE ===== */
-    .veille-intro { background: rgba(56,189,248,0.07); border: 1px solid rgba(56,189,248,0.2); border-radius: 20px; padding: 40px 45px; margin-bottom: 60px; }
-    .veille-intro h3 { font-size: 1.4rem; color: var(--accent); margin-bottom: 15px; display: flex; align-items: center; gap: 12px; }
-    .veille-intro p { color: var(--text-muted); line-height: 1.8; margin-bottom: 14px; }
-    .veille-intro p:last-child { margin-bottom: 0; }
+    /* Bandeau intro */
+    .veille-banner { background: rgba(255,255,255,0.04); border: 1px solid rgba(56,189,248,0.18); border-radius: 20px; padding: 38px 45px; margin-bottom: 50px; }
+    .veille-banner h3 { font-size: 1.3rem; font-weight: 700; color: var(--text-light); margin-bottom: 12px; }
+    .veille-banner p { color: var(--text-muted); line-height: 1.8; max-width: 860px; }
+    .veille-banner-pills { display: flex; gap: 18px; margin-top: 28px; flex-wrap: wrap; }
+    .veille-pill { display: flex; align-items: center; gap: 10px; background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.2); border-radius: 12px; padding: 14px 20px; flex: 1; min-width: 200px; }
+    .veille-pill i { color: var(--accent); font-size: 1.1rem; flex-shrink: 0; }
+    .veille-pill strong { display: block; font-size: 0.88rem; color: var(--text-light); margin-bottom: 3px; }
+    .veille-pill span { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
 
-    .veille-topics { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-bottom: 70px; }
-    .veille-topic { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; display: flex; gap: 18px; align-items: flex-start; transition: 0.3s; }
-    .veille-topic:hover { background: rgba(56,189,248,0.07); border-color: rgba(56,189,248,0.25); }
-    .veille-topic-icon { font-size: 1.8rem; color: var(--accent); flex-shrink: 0; margin-top: 3px; }
-    .veille-topic h4 { font-size: 1rem; margin-bottom: 6px; }
-    .veille-topic p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    /* Layout 2 colonnes */
+    .veille-layout { display: grid; grid-template-columns: 300px 1fr; gap: 35px; align-items: start; }
+    @media (max-width: 900px) { .veille-layout { grid-template-columns: 1fr; } }
 
-    .veille-articles-title { font-size: 1.6rem; color: var(--text-light); text-align: center; margin-bottom: 35px; font-weight: 600; }
-    .veille-articles-title span { color: var(--accent); }
+    /* Sidebar gauche */
+    .veille-sidebar { display: flex; flex-direction: column; gap: 22px; position: sticky; top: 120px; }
+    .veille-sidebar-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px; }
+    .veille-sidebar-card h4 { font-size: 0.95rem; font-weight: 600; color: var(--text-light); margin-bottom: 14px; display: flex; align-items: center; gap: 9px; }
+    .veille-sidebar-card h4 i { color: var(--accent); }
+    .veille-sidebar-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; }
+    .veille-topic-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+    .veille-topic-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+    .veille-topic-list li i { color: var(--accent); font-size: 0.9rem; margin-top: 2px; flex-shrink: 0; }
+    .veille-topic-list li strong { display: block; color: var(--text-light); font-size: 0.83rem; }
 
-    /* Article cards avec synthèse intégrée */
-    .veille-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-bottom: 60px; }
-    .veille-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; overflow: hidden; transition: 0.3s; display: flex; flex-direction: column; }
-    .veille-card:hover { background: rgba(255,255,255,0.09); border-color: rgba(56,189,248,0.3); transform: translateY(-4px); }
-    .veille-card-header { padding: 28px 28px 20px; }
-    .veille-card-num { font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
-    .veille-card h3 { font-size: 1rem; margin-bottom: 10px; }
-    .veille-card-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; }
-    .veille-placeholder { display: flex; align-items: center; gap: 8px; margin-top: 16px; padding: 10px 16px; background: rgba(56,189,248,0.08); border-radius: 10px; font-size: 0.8rem; color: var(--accent); border: 1px dashed rgba(56,189,248,0.3); }
-    .veille-synthese-inline { background: rgba(14,165,233,0.08); border-top: 1px solid rgba(56,189,248,0.15); padding: 20px 28px; margin-top: auto; }
-    .veille-synthese-inline-label { font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 8px; display: flex; align-items: center; gap: 7px; }
-    .veille-synthese-inline p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; font-style: italic; }
+    /* Liste articles */
+    .veille-articles { display: flex; flex-direction: column; gap: 22px; }
+    .veille-article-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; transition: 0.3s; }
+    .veille-article-card:hover { border-color: rgba(56,189,248,0.3); background: rgba(56,189,248,0.04); }
+    .veille-article-main { display: flex; gap: 20px; padding: 24px 26px; align-items: flex-start; }
+    .veille-article-num { font-size: 1.5rem; font-weight: 700; color: rgba(56,189,248,0.25); flex-shrink: 0; line-height: 1; margin-top: 3px; min-width: 36px; }
+    .veille-article-body { flex: 1; }
+    .veille-article-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+    .veille-atag { padding: 3px 12px; border-radius: 20px; font-size: 0.72rem; font-weight: 600; }
+    .veille-atag.theme { background: rgba(56,189,248,0.12); color: var(--accent); border: 1px solid rgba(56,189,248,0.25); }
+    .veille-atag.source { background: rgba(255,255,255,0.06); color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); }
+    .veille-article-body h3 { font-size: 1rem; font-weight: 600; color: var(--text-light); margin-bottom: 8px; line-height: 1.45; }
+    .veille-article-body p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.7; }
+    .veille-article-meta { font-size: 0.75rem; color: #475569; margin-top: 10px; }
+    .veille-article-footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 14px 26px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .veille-article-synthese { font-size: 0.8rem; color: var(--text-muted); font-style: italic; line-height: 1.55; flex: 1; }
+    .veille-article-synthese strong { color: var(--accent); font-style: normal; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.8px; display: block; margin-bottom: 4px; }
+    .veille-article-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; background: rgba(56,189,248,0.1); color: var(--accent); font-size: 0.78rem; font-weight: 600; border: 1px solid rgba(56,189,248,0.25); transition: 0.3s; white-space: nowrap; flex-shrink: 0; }
+    .veille-article-link:hover { background: var(--accent-strong); color: white; border-color: var(--accent-strong); }
 
     /* Synthèse globale */
-    .veille-synthese-globale { background: linear-gradient(135deg, rgba(14,165,233,0.1), rgba(56,189,248,0.05)); border: 1px solid rgba(56,189,248,0.25); border-radius: 20px; padding: 40px 45px; }
-    .veille-synthese-globale h3 { font-size: 1.3rem; color: var(--accent); margin-bottom: 15px; display: flex; align-items: center; gap: 12px; }
-    .veille-synthese-globale p { color: var(--text-muted); line-height: 1.8; }
+    .veille-synthese-globale { background: linear-gradient(135deg, rgba(14,165,233,0.08), rgba(56,189,248,0.03)); border: 1px solid rgba(56,189,248,0.22); border-radius: 20px; padding: 36px 45px; margin-top: 50px; }
+    .veille-synthese-globale h3 { font-size: 1.15rem; color: var(--accent); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .veille-synthese-globale p { color: var(--text-muted); line-height: 1.8; font-size: 0.9rem; }
 
     /* ===== FOOTER ===== */
     footer { background: var(--bg-dark); text-align: center; padding: 60px 10%; color: var(--text-muted); }
@@ -197,25 +214,25 @@
 
     <div class="parcours-item">
       <div class="parcours-card">
-        <div class="parcours-year">2025-2027</div>
-        <h3>lycée geoffroy-saint-hilaire -  BTS-SIO (service informatique aux organisation) spé : SISR </h3>
-        <p>spé : SISR (Solutions d'Infrastructure, Systèmes et Réseaux) </p>
+        <div class="parcours-year">À compléter</div>
+        <h3>Votre établissement — Votre diplôme</h3>
+        <p>Décrivez ici votre formation actuelle ou passée.</p>
       </div>
     </div>
 
     <div class="parcours-item">
       <div class="parcours-card">
-        <div class="parcours-year">2024-2025</div>
-        <h3>IUT de Blois - BUT Réseaux et télécommunication</h3>
-       
+        <div class="parcours-year">À compléter</div>
+        <h3>Votre établissement — Votre diplôme</h3>
+        <p>Décrivez ici une autre étape de votre parcours.</p>
       </div>
     </div>
 
     <div class="parcours-item">
       <div class="parcours-card">
-        <div class="parcours-year">2023-2024</div>
-        <h3>lycée geoffroy-saint-hilaire - Terminal STI2D</h3>
-        <p>baccalaureat: admis mention assez bien. </p>
+        <div class="parcours-year">À compléter</div>
+        <h3>Votre établissement — Votre diplôme</h3>
+        <p>Décrivez ici une autre étape de votre parcours.</p>
       </div>
     </div>
 
@@ -322,7 +339,7 @@
       <div class="nds-icon"><i class="fas fa-file-alt"></i></div>
       <h3>Note de Synthèse 1</h3>
       <p>Cliquez ci-dessous pour consulter ma première note de synthèse hébergée sur Google Drive.</p>
-      <a href="https://docs.google.com/document/d/1ar_UiS5tDEPTX16YKEKICQWiKLihD1aAxv7m8QbwGJY/edit?usp=sharing" target="_blank" class="nds-btn">
+      <a href="LIEN_GOOGLE_DRIVE_NDS1" target="_blank" class="nds-btn">
         <i class="fab fa-google-drive"></i> Consulter la NDS 1
       </a>
     </div>
@@ -343,153 +360,169 @@
 <section id="veille">
   <h2 class="section-title">Veille Technologique</h2>
 
-  <!-- Principe de la veille -->
-  <div class="veille-intro">
-    <h3><i class="fas fa-satellite-dish"></i> Qu'est-ce que la veille technologique ?</h3>
-    <p>La veille technologique est un processus continu de surveillance et d'analyse des évolutions techniques et scientifiques dans un domaine donné. Elle permet d'anticiper les tendances, d'identifier les innovations émergentes et de rester à jour face aux mutations rapides du secteur.</p>
-    <p>Dans le cadre du BTS SIO, cette démarche est essentielle : elle développe l'esprit critique, la capacité à traiter l'information et à en tirer des conclusions pertinentes pour sa pratique professionnelle.</p>
+  <!-- Bandeau intro -->
+  <div class="veille-banner">
+    <h3>Pourquoi faire de la veille technologique ?</h3>
+    <p>La veille technologique est une pratique essentielle pour tout professionnel de l'IT : elle consiste à surveiller et analyser en continu les évolutions d'un domaine, afin de rester compétent, de détecter les opportunités et de ne pas se laisser dépasser par les changements. Ma veille porte sur les <strong>exosquelettes</strong> — structures mécaniques portées par l'humain pour amplifier, assister ou restaurer ses capacités physiques, à l'intersection de la robotique, de l'électronique et de l'informatique embarquée.</p>
+    <div class="veille-banner-pills">
+      <div class="veille-pill">
+        <i class="fas fa-chart-line"></i>
+        <div><strong>Anticiper les évolutions</strong><span>Identifier les nouvelles technologies et pratiques du secteur.</span></div>
+      </div>
+      <div class="veille-pill">
+        <i class="fas fa-shield-alt"></i>
+        <div><strong>Renforcer ses compétences</strong><span>Rester à jour face aux nouvelles tendances et méthodes.</span></div>
+      </div>
+      <div class="veille-pill">
+        <i class="fas fa-lightbulb"></i>
+        <div><strong>Nourrir sa réflexion</strong><span>S'appuyer sur des sources fiables pour enrichir ses projets.</span></div>
+      </div>
+    </div>
   </div>
 
-  <!-- Présentation des exosquelettes -->
-  <div class="veille-topics">
+  <!-- Layout 2 colonnes -->
+  <div class="veille-layout">
 
-    <div class="veille-topic">
-      <div class="veille-topic-icon"><i class="fas fa-robot"></i></div>
-      <div>
-        <h4>Qu'est-ce qu'un exosquelette ?</h4>
-        <p>Un exosquelette est une structure mécanique portée par un être humain, conçue pour amplifier, assister ou restaurer les capacités physiques de son utilisateur. Il s'agit d'une combinaison de mécanique, d'électronique et d'informatique embarquée.</p>
+    <!-- Sidebar -->
+    <div class="veille-sidebar">
+
+      <div class="veille-sidebar-card">
+        <h4><i class="fas fa-broadcast-tower"></i> Méthodologie</h4>
+        <p>Cette veille cible les avancées technologiques sur les exosquelettes en croisant des sources spécialisées, des actualités industrielles et des publications scientifiques.</p>
       </div>
+
+      <div class="veille-sidebar-card">
+        <h4><i class="fas fa-bookmark"></i> Sujet de veille</h4>
+        <ul class="veille-topic-list">
+          <li><i class="fas fa-robot"></i><div><strong>Les exosquelettes</strong>Structures mécaniques portées par l'humain pour amplifier ou restaurer ses capacités.</div></li>
+          <li><i class="fas fa-hard-hat"></i><div><strong>Industrie & BTP</strong>Réduction des TMS et assistance aux travailleurs.</div></li>
+          <li><i class="fas fa-hospital"></i><div><strong>Médical & rééducation</strong>Aide à la mobilité et récupération fonctionnelle.</div></li>
+          <li><i class="fas fa-fighter-jet"></i><div><strong>Défense</strong>Augmentation des capacités du soldat.</div></li>
+        </ul>
+      </div>
+
     </div>
 
-    <div class="veille-topic">
-      <div class="veille-topic-icon"><i class="fas fa-history"></i></div>
-      <div>
-        <h4>Origines & histoire</h4>
-        <p>Les premiers concepts remontent aux années 1960 avec les recherches militaires américaines. Le projet "Hardiman" de General Electric (1965) est l'un des premiers prototypes. Les avancées décisives arrivent dans les années 2000 grâce à la miniaturisation électronique et aux progrès en robotique.</p>
+    <!-- Articles -->
+    <div class="veille-articles">
+
+      <div class="veille-article-card">
+        <div class="veille-article-main">
+          <div class="veille-article-num">01</div>
+          <div class="veille-article-body">
+            <div class="veille-article-tags">
+              <span class="veille-atag theme">Industrie</span>
+              <span class="veille-atag source">À renseigner</span>
+            </div>
+            <h3>Titre de l'article à renseigner</h3>
+            <p>Résumé de l'article à compléter : décrivez ici les points clés abordés, le contexte et les informations importantes retenues.</p>
+            <div class="veille-article-meta">Date · Source</div>
+          </div>
+        </div>
+        <div class="veille-article-footer">
+          <div class="veille-article-synthese">
+            <strong><i class="fas fa-pen-nib"></i> Ma synthèse</strong>
+            Ce que cet article m'a appris et en quoi il enrichit ma compréhension des exosquelettes…
+          </div>
+          <a href="#" class="veille-article-link"><i class="fas fa-external-link-alt"></i> Lire</a>
+        </div>
       </div>
+
+      <div class="veille-article-card">
+        <div class="veille-article-main">
+          <div class="veille-article-num">02</div>
+          <div class="veille-article-body">
+            <div class="veille-article-tags">
+              <span class="veille-atag theme">Médical</span>
+              <span class="veille-atag source">À renseigner</span>
+            </div>
+            <h3>Titre de l'article à renseigner</h3>
+            <p>Résumé de l'article à compléter : décrivez ici les points clés abordés, le contexte et les informations importantes retenues.</p>
+            <div class="veille-article-meta">Date · Source</div>
+          </div>
+        </div>
+        <div class="veille-article-footer">
+          <div class="veille-article-synthese">
+            <strong><i class="fas fa-pen-nib"></i> Ma synthèse</strong>
+            Ce que cet article m'a appris et en quoi il enrichit ma compréhension des exosquelettes…
+          </div>
+          <a href="#" class="veille-article-link"><i class="fas fa-external-link-alt"></i> Lire</a>
+        </div>
+      </div>
+
+      <div class="veille-article-card">
+        <div class="veille-article-main">
+          <div class="veille-article-num">03</div>
+          <div class="veille-article-body">
+            <div class="veille-article-tags">
+              <span class="veille-atag theme">Défense</span>
+              <span class="veille-atag source">À renseigner</span>
+            </div>
+            <h3>Titre de l'article à renseigner</h3>
+            <p>Résumé de l'article à compléter : décrivez ici les points clés abordés, le contexte et les informations importantes retenues.</p>
+            <div class="veille-article-meta">Date · Source</div>
+          </div>
+        </div>
+        <div class="veille-article-footer">
+          <div class="veille-article-synthese">
+            <strong><i class="fas fa-pen-nib"></i> Ma synthèse</strong>
+            Ce que cet article m'a appris et en quoi il enrichit ma compréhension des exosquelettes…
+          </div>
+          <a href="#" class="veille-article-link"><i class="fas fa-external-link-alt"></i> Lire</a>
+        </div>
+      </div>
+
+      <div class="veille-article-card">
+        <div class="veille-article-main">
+          <div class="veille-article-num">04</div>
+          <div class="veille-article-body">
+            <div class="veille-article-tags">
+              <span class="veille-atag theme">Technologie</span>
+              <span class="veille-atag source">À renseigner</span>
+            </div>
+            <h3>Titre de l'article à renseigner</h3>
+            <p>Résumé de l'article à compléter : décrivez ici les points clés abordés, le contexte et les informations importantes retenues.</p>
+            <div class="veille-article-meta">Date · Source</div>
+          </div>
+        </div>
+        <div class="veille-article-footer">
+          <div class="veille-article-synthese">
+            <strong><i class="fas fa-pen-nib"></i> Ma synthèse</strong>
+            Ce que cet article m'a appris et en quoi il enrichit ma compréhension des exosquelettes…
+          </div>
+          <a href="#" class="veille-article-link"><i class="fas fa-external-link-alt"></i> Lire</a>
+        </div>
+      </div>
+
+      <div class="veille-article-card">
+        <div class="veille-article-main">
+          <div class="veille-article-num">05</div>
+          <div class="veille-article-body">
+            <div class="veille-article-tags">
+              <span class="veille-atag theme">Société</span>
+              <span class="veille-atag source">À renseigner</span>
+            </div>
+            <h3>Titre de l'article à renseigner</h3>
+            <p>Résumé de l'article à compléter : décrivez ici les points clés abordés, le contexte et les informations importantes retenues.</p>
+            <div class="veille-article-meta">Date · Source</div>
+          </div>
+        </div>
+        <div class="veille-article-footer">
+          <div class="veille-article-synthese">
+            <strong><i class="fas fa-pen-nib"></i> Ma synthèse</strong>
+            Ce que cet article m'a appris et en quoi il enrichit ma compréhension des exosquelettes…
+          </div>
+          <a href="#" class="veille-article-link"><i class="fas fa-external-link-alt"></i> Lire</a>
+        </div>
+      </div>
+
     </div>
-
-    <div class="veille-topic">
-      <div class="veille-topic-icon"><i class="fas fa-hospital"></i></div>
-      <div>
-        <h4>Médical & rééducation</h4>
-        <p>Utilisés en kinésithérapie et neurologie pour aider les patients paraplégiques ou victimes d'AVC à retrouver la marche. Des modèles comme le ReWalk ou l'Ekso Bionics sont déjà utilisés en milieu hospitalier.</p>
-      </div>
-    </div>
-
-    <div class="veille-topic">
-      <div class="veille-topic-icon"><i class="fas fa-hard-hat"></i></div>
-      <div>
-        <h4>Industrie & BTP</h4>
-        <p>Dans les usines et sur les chantiers, les exosquelettes réduisent les troubles musculo-squelettiques (TMS) des travailleurs en soutenant le dos, les épaules et les bras lors de tâches répétitives ou de port de charges lourdes.</p>
-      </div>
-    </div>
-
-    <div class="veille-topic">
-      <div class="veille-topic-icon"><i class="fas fa-fighter-jet"></i></div>
-      <div>
-        <h4>Défense & applications futures</h4>
-        <p>Les armées investissent dans des exosquelettes pour augmenter l'endurance des soldats et faciliter le port d'équipements lourds. À terme, des usages dans l'exploration spatiale ou l'assistance aux personnes âgées sont envisagés.</p>
-      </div>
-    </div>
-
-    <div class="veille-topic">
-      <div class="veille-topic-icon"><i class="fas fa-microchip"></i></div>
-      <div>
-        <h4>Technologies embarquées</h4>
-        <p>Les exosquelettes modernes intègrent des capteurs, de l'intelligence artificielle, des actionneurs électriques ou hydrauliques, et des interfaces cerveau-machine. Le traitement des données en temps réel est au cœur de leur fonctionnement.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Articles avec synthèse par article -->
-  <p class="veille-articles-title">Mes articles & ressources de <span>veille</span></p>
-  <div class="veille-grid">
-
-    <div class="veille-card">
-      <div class="veille-card-header">
-        <div class="veille-card-num">Article 01</div>
-        <h3>Titre de l'article à renseigner</h3>
-        <p class="veille-card-desc">Résumé de l'article à compléter : source, date, points clés abordés.</p>
-        <div class="veille-placeholder"><i class="fas fa-link"></i> Lien à ajouter</div>
-      </div>
-      <div class="veille-synthese-inline">
-        <div class="veille-synthese-inline-label"><i class="fas fa-pen-nib"></i> Ma synthèse</div>
-        <p>Ce que cet article m'a appris, en quoi il est pertinent pour ma veille sur les exosquelettes…</p>
-      </div>
-    </div>
-
-    <div class="veille-card">
-      <div class="veille-card-header">
-        <div class="veille-card-num">Article 02</div>
-        <h3>Titre de l'article à renseigner</h3>
-        <p class="veille-card-desc">Résumé de l'article à compléter : source, date, points clés abordés.</p>
-        <div class="veille-placeholder"><i class="fas fa-link"></i> Lien à ajouter</div>
-      </div>
-      <div class="veille-synthese-inline">
-        <div class="veille-synthese-inline-label"><i class="fas fa-pen-nib"></i> Ma synthèse</div>
-        <p>Ce que cet article m'a appris, en quoi il est pertinent pour ma veille sur les exosquelettes…</p>
-      </div>
-    </div>
-
-    <div class="veille-card">
-      <div class="veille-card-header">
-        <div class="veille-card-num">Article 03</div>
-        <h3>Titre de l'article à renseigner</h3>
-        <p class="veille-card-desc">
-          Source : BFMTV Tech & Co (France)
-
-          Date de publication : 24 mars 2026
-          
-          
-          Points clés abordés :
-
-Tests d'exosquelettes en conditions réelles de combat.
-Réduction de la fatigue physique des soldats.
-Augmentation de la vitesse et de l'endurance.
-Format compact et facilement transportable.
-Intégration de l'intelligence artificielle pour optimiser l'assistance.</p>
-        <div class="veille-placeholder"><i class="fas fa-link"></i> Lien à ajouter</div>
-      </div>
-      <div class="veille-synthese-inline">
-        <div class="veille-synthese-inline-label"><i class="fas fa-pen-nib"></i> Ma synthèse</div>
-        <p>L'article présente les essais réalisés par l'armée ukrainienne sur des exosquelettes pliants destinés à améliorer les performances physiques des soldats. Ces dispositifs légers réduisent l'effort nécessaire pour transporter des charges lourdes et augmentent l'endurance sur le terrain. Grâce à cette assistance, les militaires peuvent se déplacer plus rapidement, jusqu'à 19 km/h selon les tests. Certains modèles intègrent également de l'intelligence artificielle pour adapter automatiquement l'aide fournie. L'article illustre ainsi les avancées récentes des exosquelettes militaires vers des équipements plus compacts, mobiles et performants.</p>
-      </div>
-    </div>
-
-    <div class="veille-card">
-      <div class="veille-card-header">
-        <div class="veille-card-num">Article 04</div>
-        <h3>Titre de l'article à renseigner</h3>
-        <p class="veille-card-desc">Résumé de l'article à compléter : source, date, points clés abordés.</p>
-        <div class="veille-placeholder"><i class="fas fa-link"></i> Lien à ajouter</div>
-      </div>
-      <div class="veille-synthese-inline">
-        <div class="veille-synthese-inline-label"><i class="fas fa-pen-nib"></i> Ma synthèse</div>
-        <p>Ce que cet article m'a appris, en quoi il est pertinent pour ma veille sur les exosquelettes…</p>
-      </div>
-    </div>
-
-    <div class="veille-card">
-      <div class="veille-card-header">
-        <div class="veille-card-num">Article 05</div>
-        <h3>Titre de l'article à renseigner</h3>
-        <p class="veille-card-desc">Résumé de l'article à compléter : source, date, points clés abordés.</p>
-        <div class="veille-placeholder"><i class="fas fa-link"></i> Lien à ajouter</div>
-      </div>
-      <div class="veille-synthese-inline">
-        <div class="veille-synthese-inline-label"><i class="fas fa-pen-nib"></i> Ma synthèse</div>
-        <p>Ce que cet article m'a appris, en quoi il est pertinent pour ma veille sur les exosquelettes…</p>
-      </div>
-    </div>
-
   </div>
 
   <!-- Synthèse globale -->
   <div class="veille-synthese-globale">
     <h3><i class="fas fa-layer-group"></i> Synthèse globale</h3>
-    <p>À compléter : résumez ici les grandes tendances observées à travers l'ensemble de vos articles. Quels sont les enjeux majeurs des exosquelettes aujourd'hui ? Quelles évolutions prévisibles à court et moyen terme ? Faites le lien avec votre formation SIO/SISR si possible (sécurité des données médicales, IoT, systèmes embarqués…).</p>
+    <p>À compléter au fil de votre veille : résumez les grandes tendances observées à travers vos articles, les enjeux majeurs des exosquelettes aujourd'hui, et les perspectives d'évolution à court et moyen terme. Faites le lien avec votre formation SIO/SISR si possible (sécurité des données, IoT, systèmes embarqués…).</p>
   </div>
 
 </section>
